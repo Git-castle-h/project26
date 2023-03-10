@@ -49,9 +49,9 @@ public class LoginController {
 	
 	@RequestMapping(value="/test/login2.do", method= {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView login2(
-			@RequestParam("userID")String userID,
-			@RequestParam("userName")String userName,
-			@RequestParam("userEmail")String userEmail,
+			@RequestParam(value="userID", required=false)String userID,
+			@RequestParam(value="userName", required=false)String userName,
+			@RequestParam(value="userEmail", required=false)String userEmail,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		request.setCharacterEncoding("utf-8");
