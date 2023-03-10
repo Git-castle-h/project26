@@ -1,5 +1,7 @@
 package com.spring.ex02;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller("loginController")
 public class LoginController {
 	
-	@RequestMapping(value= {"/test/loginForm.do"},method= {RequestMethod.GET})
+	@RequestMapping(value= {"/test/loginForm.do"},method= {RequestMethod.POST ,RequestMethod.GET})
 	public ModelAndView loginForm(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
@@ -21,7 +23,7 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value= {"/test/loginForm2.do"},method= {RequestMethod.GET})
+	@RequestMapping(value= {"/test/loginForm2.do"},method= {RequestMethod.POST ,RequestMethod.GET})
 	public ModelAndView loginForm2(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
@@ -29,6 +31,16 @@ public class LoginController {
 		return mav;
 		
 	}
+	
+	@RequestMapping(value= {"/test/loginForm3.do"},method= {RequestMethod.POST ,RequestMethod.GET})
+	public ModelAndView loginForm3(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("loginForm3");
+		return mav;
+		
+	}
+	
 	
 	@RequestMapping(value="/test/login.do", method= {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -67,4 +79,23 @@ public class LoginController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/test/login3.do", method= {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView login3(
+			@RequestParam Map<String,String> info,
+			HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		request.setCharacterEncoding("utf-8");
+		ModelAndView mav = new ModelAndView();
+		
+		System.out.println("isLogin3");
+		
+		mav.setViewName("result2");
+		mav.addObject("info",info);
+		
+		
+		
+		return mav;
+	}
 }
+
