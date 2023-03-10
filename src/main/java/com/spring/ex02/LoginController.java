@@ -51,6 +51,7 @@ public class LoginController {
 	public ModelAndView login2(
 			@RequestParam("userID")String userID,
 			@RequestParam("userName")String userName,
+			@RequestParam("userEmail")String userEmail,
 			HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		request.setCharacterEncoding("utf-8");
@@ -61,6 +62,8 @@ public class LoginController {
 		mav.setViewName("result");
 		mav.addObject("userID",userID);
 		mav.addObject("userName",userName);
+		mav.addObject("userEmail",userEmail);
+		
 		
 		return mav;
 	}

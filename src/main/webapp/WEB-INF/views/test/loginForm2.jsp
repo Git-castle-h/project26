@@ -15,12 +15,16 @@
 </head>
 <body>
 	<form action="${contextPath }/test/login2.do">
+			
 		<table>
 			<tr>
 				<td>아이디 <input type="text" name="userID" size="10"></td>
 			</tr>
 			<tr>
-				<td>아이디 <input type="text" name="userName" size="10"></td>
+				<td>이름 <input type="text" name="userName" size="10"></td>
+			</tr>
+			<tr>
+				<td>이메일 <input type="text" name="userEmail" size="10"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="로그인"></td>
